@@ -45,3 +45,22 @@ services:
       - node
     ports:
       - 80:80
+
+  sonarqube:
+    container_name: ${APP_NAME}-sonarqube
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+
+  sonarscanner:
+    container_name: ${APP_NAME}-sonar-scanner
+    build:
+      context: .
+      dockerfile: ./docker/sonar-scanner/Dockerfile
+    volumes:
+      - .:/usr/src/
+      - ./sonar-scanner.properties:/usr/lib/sonar-scanner/conf/sonar-scanner.properties
+    links:
+      - sonarqube
+    command: tail -f /dev/null

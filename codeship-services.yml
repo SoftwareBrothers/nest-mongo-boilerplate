@@ -1,0 +1,25 @@
+application:
+  build:
+    context: .
+    dockerfile: ./docker/node/Dockerfile
+  cached: true
+  environment:
+    WAIT_HOSTS: mongo:27017
+  depends_on:
+    - mongo
+  encrypted_env_file:
+    - env.encrypted
+  volumes:
+    - .:/home/node/app/
+    - /home/node/app/node_modules
+
+sonarscanner:
+  build:
+    context: .
+    dockerfile: docker/sonar-scanner/Dockerfile
+  cached: true
+  volumes:
+    - .:/usr/src/
+  encrypted_env_file:
+    - env.encrypted
+  command: tail -f /dev/null

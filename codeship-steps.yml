@@ -1,0 +1,14 @@
+- name: Linter
+  service: application
+  command: yarn lint
+
+- type: serial
+  name: Push coverage
+  tag: master
+  steps:
+    - name: Tests
+      service: application
+      command: /bin/sh -c "yarn test:cov"
+    - name: Push report to sonarcloud
+      service: sonarscanner
+      command: sh -c 'sed -i "s|SF:/home/node/app/|SF:/usr/src/|g" coverage/lcov.info && sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN -Dsonar.projectName=Boilerplate -Dsonar.projectBaseDir=/usr/src -Dsonar.sources=src -Dsonar.exclusions=**/*.spec.js -Dsonar.tests.inclusions=**/*.spec.js -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info'
