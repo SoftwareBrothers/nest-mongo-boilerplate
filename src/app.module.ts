@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
+
 import { AppController } from './app.controller';
-import { MongooseModule } from '@nestjs/mongoose';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.DATABASE_URL, { useNewUrlParser: true }),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [],
