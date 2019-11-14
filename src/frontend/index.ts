@@ -1,6 +1,6 @@
 import { BUNDLE_FILENAME, PAGE_TITLE, ROOT_ELEMENT } from './app.const';
 
-const index = ({ app, state }: { app: string, state: object }): string => `
+const index = ({ app, state }: { app: string; state: object }): string => `
   <!DOCTYPE html>
   <html lang="en">
     <head>

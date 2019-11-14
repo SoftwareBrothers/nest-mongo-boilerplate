@@ -35,7 +35,8 @@
     "rxjs": "^6.3.3",
     "swagger-ui-express": "^4.0.6",
     "@nestjs/mongoose": "^6.1.2",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
@@ -54,7 +55,6 @@
     "tsconfig-paths": "3.8.0",
     "typescript": "3.7.2",
     "wait-on": "^3.2.0",
-    "parcel-bundler": "latest"
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-typescript": "^5.0.0",

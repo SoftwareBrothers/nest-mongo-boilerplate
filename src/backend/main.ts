@@ -1,13 +1,15 @@
-import { HttpAdapterHost, NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import SwaggerSetup from './config/swagger.config';
-
-import Bundler from 'parcel-bundler';
 import { join } from 'path';
+
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
+import Bundler from 'parcel-bundler';
 import { NestExpressApplication } from '@nestjs/platform-express';
+
 import { BUNDLE_FILENAME } from '../frontend/app.const';
 
-async function bootstrap() {
+import SwaggerSetup from './config/swagger.config';
+import { AppModule } from './app.module';
+
+const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   SwaggerSetup(app);
 
@@ -20,6 +22,6 @@ async function bootstrap() {
   express.use(bundler.middleware());
 
   await app.listen(3000);
-}
+};
 
 bootstrap();

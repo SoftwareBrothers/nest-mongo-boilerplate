@@ -2,5 +2,5 @@
   "watch": ["dist"],
   "ext": "js",
   "exec": "node dist/backend/main",
-  "ignore": ["node_modules", "dist/public"]
+  "ignore": ["node_modules", "dist/public/*"]
 }
