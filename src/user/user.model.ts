@@ -1,4 +1,5 @@
 import { prop } from '@typegoose/typegoose';
+
 import { Gender } from './gender.enum';
 
 export class User {
