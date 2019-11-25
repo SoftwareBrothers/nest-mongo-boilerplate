@@ -1,5 +1,5 @@
 {
-  "name": "book_forest",
+  "name": "nest-mongo-boilerplate",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -23,13 +23,15 @@
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
-    "@nestjs/swagger": "^3.0.2",
+    "@nestjs/swagger": "^3.1.0",
+    "@typegoose/typegoose": "^6.0.3",
+    "nestjs-typegoose": "^7.0.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
     "swagger-ui-express": "^4.0.6",
     "@nestjs/mongoose": "^6.1.2",
-    "mongoose": "^5.6.0"
+    "mongoose": "^5.7.7"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
@@ -37,6 +39,7 @@
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
     "@types/supertest": "^2.0.7",
+    "@types/mongoose": "^5.5.17",
     "concurrently": "^4.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
@@ -45,7 +48,7 @@
     "ts-jest": "24.0.2",
     "ts-node": "8.1.0",
     "tsconfig-paths": "3.8.0",
-    "typescript": "3.4.3",
+    "typescript": "3.7.2",
     "wait-on": "^3.2.0",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "eslint": "^6.5.1",
