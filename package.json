@@ -28,7 +28,6 @@
     "nestjs-typegoose": "^7.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-hot-loader": "^4.12.15",
     "react-router-dom": "^5.1.2",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
