@@ -7,17 +7,17 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
+    "start": "ts-node -r tsconfig-paths/register src/backend/main.ts",
+    "start:dev": "concurrently --handle-input \"wait-on dist/backend/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && npm run build",
-    "start:prod": "node dist/main.js",
+    "start:prod": "node dist/backend/main.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src ./test",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json --forceExit"
   },
   "dependencies": {
     "@nestjs/common": "^6.0.0",
@@ -26,12 +26,16 @@
     "@nestjs/swagger": "^3.1.0",
     "@typegoose/typegoose": "^6.0.3",
     "nestjs-typegoose": "^7.0.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^5.1.2",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
     "swagger-ui-express": "^4.0.6",
     "@nestjs/mongoose": "^6.1.2",
-    "mongoose": "^5.7.7"
+    "mongoose": "^5.7.7",
+    "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
