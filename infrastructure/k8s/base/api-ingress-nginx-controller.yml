@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  annotations:
+    # by default the type is elb (classic load balancer).
+    service.beta.kubernetes.io/aws-load-balancer-type: elb
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "CERT_URL"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+spec:
+  # this setting is to make sure the source IP address is preserved.
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: http

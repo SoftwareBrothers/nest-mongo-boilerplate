@@ -1,0 +1,10 @@
+resources:
+  - api-deployment.yml
+  - api-ingress-nginx-controller.yml
+  - api-ingress-nginx.yml
+  - api-ingress.yml
+  - api-namespace-dev.yml
+  - api-namespace-staging.yml
+  - api-secrets.yml
+  - api-service.yml
+  - api-config-map.yml

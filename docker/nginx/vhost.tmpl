@@ -1,14 +1,18 @@
   upstream ui {
-    server ${APP_NAME}-app:3000;
+    server ${APP_NAME}-app:${PORT};
   }
 
   upstream sonar {
-    server ${APP_NAME}-sonarqube:9000;
+    server ${APP_NAME}-sonarqube:${SONARQUBE_PORT};
   }
 
   server {
     listen 80;
+    listen 443 default_server ssl;
     server_name ${DOMAIN};
+
+    ssl_certificate     /etc/nginx/${DOMAIN}.crt;
+    ssl_certificate_key /etc/nginx/${DOMAIN}.key;
 
     client_max_body_size 10M;
     gzip on;
@@ -34,7 +38,7 @@
     image/x-icon;
 
     location / {
-    proxy_pass http://ui/;
+      proxy_pass http://ui/;
     }
 
     location /sonarqube {

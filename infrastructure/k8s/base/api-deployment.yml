@@ -1,0 +1,142 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: ~
+  labels:
+    name: api
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+        - image: IMAGE_URL
+          name: api
+          ports:
+            - containerPort: 3000
+              name: api
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: node_env
+            - name: PORT
+              value: "3000"
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mongo_password
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mongo_user
+            - name: MONGO_DB
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mongo_db
+            - name: MONGO_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mongo_host
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: jwt_secret
+            - name: COOKIE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: cookie_password
+            - name: ADMIN_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: admin_email
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: admin_password
+            - name: MAILER_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mailer_host
+            - name: MAILER_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mailer_port
+            - name: MAILER_USER
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mailer_user
+            - name: MAILER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mailer_password
+            - name: MAILER_SECURE
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: mailer_secure
+            - name: FRONTEND_APP_URL
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: frontend_app_url
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: sentry_dsn
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: access_key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: secret_access_key
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: region
+            - name: AWS_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: bucket
+            - name: FLOORPLANNER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: floor_planner_api_key
