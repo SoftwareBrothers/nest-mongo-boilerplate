@@ -40,8 +40,8 @@ services:
       - .env
     volumes:
       - ./docker/logs/nginx/:/var/log/nginx
-      - ./docker/nginx/${DOMAIN}.crt:/etc/nginx/${DOMAIN}.crt
-      - ./docker/nginx/${DOMAIN}.key:/etc/nginx/${DOMAIN}.key
+#      - ./docker/nginx/${DOMAIN}.crt:/etc/nginx/${DOMAIN}.crt
+#      - ./docker/nginx/${DOMAIN}.key:/etc/nginx/${DOMAIN}.key
     depends_on:
       - db
       - node
