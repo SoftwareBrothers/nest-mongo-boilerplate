@@ -5,7 +5,6 @@ const setupSwagger = (app): void => {
     .setTitle(process.env.APP_NAME)
     .setDescription(process.env.APP_DESC)
     .setVersion('1.0')
-    .setHost(process.env.DOMAIN)
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
