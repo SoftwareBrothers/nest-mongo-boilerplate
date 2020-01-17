@@ -1,5 +1,5 @@
 FROM node:latest
-RUN npm install -g yarn
+RUN npm install -g --force yarn
 RUN mkdir -p /home/node/app/node_modules
 
 WORKDIR /home/node/app

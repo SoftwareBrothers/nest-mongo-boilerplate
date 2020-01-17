@@ -49,9 +49,6 @@ services:
   sonarqube:
     container_name: ${APP_NAME}-sonarqube
     image: sonarqube:latest
-    ports:
-      - "9000:9000"
-      - "9092:9092"
 
   sonarscanner:
     container_name: ${APP_NAME}-sonar-scanner
