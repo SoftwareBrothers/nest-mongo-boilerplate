@@ -57,6 +57,6 @@ To locally analyse your code it is enough to run
 ```
 make sonar
 ```
-The results can be viewed in local instance of sonarqube [https://app.local:9000](https://app.local:9000) or [http://localhost:9000](http://localhost:9000).
+The results can be viewed in local instance of sonarqube [https://app.local/sonarqube](https://app.local/sonarqube) or [http://localhost/sonarqube](http://localhost/sonarqube).
 
 Local instance of sonarqube uses `sonar-scanner.properties` file.

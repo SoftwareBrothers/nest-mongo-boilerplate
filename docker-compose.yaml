@@ -49,6 +49,9 @@ services:
   sonarqube:
     container_name: ${APP_NAME}-sonarqube
     image: sonarqube:latest
+    command: -Dsonar.web.context=/sonarqube
+    expose:
+      - "9000"
 
   sonarscanner:
     container_name: ${APP_NAME}-sonar-scanner
