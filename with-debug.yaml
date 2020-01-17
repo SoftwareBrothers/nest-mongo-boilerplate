@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  node:
+    command: >
+      sh -c '/wait && yarn start:debug'
+    ports:
+      - 9229:9229

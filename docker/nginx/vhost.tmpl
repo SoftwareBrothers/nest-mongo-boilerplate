@@ -2,6 +2,10 @@
     server ${APP_NAME}-app:3000;
   }
 
+  upstream sonar {
+    server ${APP_NAME}-sonarqube:9000;
+  }
+
   server {
     listen 80;
     server_name ${DOMAIN};
@@ -31,6 +35,10 @@
 
     location / {
     proxy_pass http://ui/;
+    }
+
+    location /sonarqube {
+      proxy_pass http://sonar/sonarqube;
     }
 
     error_log /var/log/nginx/app_error.log;
