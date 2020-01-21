@@ -19,7 +19,7 @@ services:
     restart: always
     volumes:
       - .:/home/node/app/
-      - /home/node/app/node_modules
+      - ./node_modules:/home/node/app/node_modules
     links:
       - db
     ports:
@@ -48,21 +48,24 @@ services:
     ports:
       - 80:80
 
-  sonarqube:
-    container_name: ${APP_NAME}-sonarqube
-    image: sonarqube:latest
-    command: -Dsonar.web.context=/sonarqube
-    expose:
-      - "9000"
+#  sonarqube:
+#    container_name: ${APP_NAME}-sonarqube
+#    image: sonarqube:latest
+#    command: -Dsonar.web.context=/sonarqube
+#    expose:
+#      - "9000"
+#
+#  sonarscanner:
+#    container_name: ${APP_NAME}-sonar-scanner
+#    build:
+#      context: .
+#      dockerfile: ./docker/sonar-scanner/Dockerfile
+#    volumes:
+#      - .:/usr/src/
+#      - ./sonar-scanner.properties:/usr/lib/sonar-scanner/conf/sonar-scanner.properties
+#    links:
+#      - sonarqube
+#    command: tail -f /dev/null
 
-  sonarscanner:
-    container_name: ${APP_NAME}-sonar-scanner
-    build:
-      context: .
-      dockerfile: ./docker/sonar-scanner/Dockerfile
-    volumes:
-      - .:/usr/src/
-      - ./sonar-scanner.properties:/usr/lib/sonar-scanner/conf/sonar-scanner.properties
-    links:
-      - sonarqube
-    command: tail -f /dev/null
+volumes:
+  node_modules:

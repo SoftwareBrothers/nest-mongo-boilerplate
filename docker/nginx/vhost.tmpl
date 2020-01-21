@@ -2,9 +2,9 @@
     server ${APP_NAME}-app:${PORT};
   }
 
-  upstream sonar {
-    server ${APP_NAME}-sonarqube:${SONARQUBE_PORT};
-  }
+  #upstream sonar {
+    #server ${APP_NAME}-sonarqube:${SONARQUBE_PORT};
+  #}
 
   server {
     listen 80;
@@ -41,9 +41,9 @@
       proxy_pass http://ui/;
     }
 
-    location /sonarqube {
-      proxy_pass http://sonar/sonarqube;
-    }
+    #location /sonarqube {
+      #proxy_pass http://sonar/sonarqube;
+    #}
 
     error_log /var/log/nginx/app_error.log;
     access_log /var/log/nginx/app_access.log;

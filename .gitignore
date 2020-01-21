@@ -37,6 +37,7 @@ lerna-debug.log*
 
 # project
 .env
+.adminbro
 
 # docker
 /docker/db
