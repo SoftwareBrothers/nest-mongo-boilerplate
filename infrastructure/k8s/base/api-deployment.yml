@@ -135,8 +135,3 @@ spec:
                 secretKeyRef:
                   name: aws-secrets
                   key: bucket
-            - name: FLOORPLANNER_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secrets
-                  key: floor_planner_api_key
