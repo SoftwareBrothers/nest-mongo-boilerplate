@@ -2,6 +2,8 @@
 /dist
 /node_modules
 
+.cache
+
 # Logs
 logs
 *.log
@@ -35,10 +37,16 @@ lerna-debug.log*
 
 # project
 .env
+.adminbro
 
 # docker
 /docker/db
 /docker/logs
+/docker/nginx/*.crt
+/docker/nginx/*.key
 
 # SonarQube
 .scannerwork
+
+# infrastructure
+infrastructure/k8s/environments/**/api-secrets.yml

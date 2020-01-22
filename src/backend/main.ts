@@ -8,10 +8,12 @@ import { BUNDLE_FILENAME } from '../frontend/app.const';
 
 import SwaggerSetup from './config/swagger.config';
 import { AppModule } from './app.module';
+import adminSetup from './admin/admin.plugin';
 
 const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   SwaggerSetup(app);
+  await adminSetup(app);
 
   app.useStaticAssets(join(__dirname, '../public'), { prefix: '/static' });
   const bundler = new Bundler(join(__dirname, '../frontend/*.js'), {

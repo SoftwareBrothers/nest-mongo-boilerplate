@@ -1,0 +1,8 @@
+patchesStrategicMerge:
+  - api-deployment.yml
+  - api-ingress.yml
+  - api-secrets.yml
+  - api-service.yml
+  - api-config-map.yml
+bases:
+  - ../../base
