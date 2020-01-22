@@ -42,6 +42,8 @@ lerna-debug.log*
 # docker
 /docker/db
 /docker/logs
+/docker/nginx/*.crt
+/docker/nginx/*.key
 
 # SonarQube
 .scannerwork

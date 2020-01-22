@@ -3,14 +3,12 @@ import AdminBroExpress from 'admin-bro-expressjs';
 import AdminBroMongoose from 'admin-bro-mongoose';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
+import AdminBro from 'admin-bro';
 
 import config from '../config/admin';
 import getAdminAuthenticationConfig from '../admin/authentication/admin-auth.config';
 
 import { Environment } from '../config/environments';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const AdminBro = require('admin-bro');
 
 const EXPIRED_SESSIONS_REMOVE_INTERVAL = 24 * 60; // in minutes
 AdminBro.registerAdapter(AdminBroMongoose);
@@ -21,7 +19,7 @@ const getRouterFor = async (adminBro, connection): Promise<object> => {
   }
   const MongoStoreFactory = connectMongo(session);
   return AdminBroExpress.buildAuthenticatedRouter(adminBro, await getAdminAuthenticationConfig(connection), null, {
-    httpOnly: false,
+    httpOnly: false,  
     resave: true,
     saveUninitialized: true,
     store: new MongoStoreFactory({

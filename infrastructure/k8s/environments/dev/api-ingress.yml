@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 spec:
   rules:
-  - host: api-dev.skyhome.no
+  - host: dev.your.app.com
     http:
       paths:
         - path: /

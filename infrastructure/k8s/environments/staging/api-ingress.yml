@@ -5,7 +5,7 @@ metadata:
   namespace: staging
 spec:
   rules:
-  - host: api-staging.skyhome.no
+  - host: staging.your.app.com
     http:
       paths:
         - path: /
