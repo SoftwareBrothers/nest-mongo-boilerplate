@@ -8,6 +8,14 @@
 $ yarn
 ```
 
+### Creating a self signed SSL certificate. Use following command and follow the instruction:
+
+Boilerplate ships with built-in certificate, however you can create your own!
+
+```bash
+make cert
+```
+
 ## Running the app
 
 ```bash
