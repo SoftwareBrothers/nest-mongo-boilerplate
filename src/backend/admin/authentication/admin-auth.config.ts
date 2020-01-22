@@ -1,4 +1,4 @@
-import { getModelForClass, mongoose } from '@typegoose/typegoose';
+import { getModelForClass } from '@typegoose/typegoose';
 import Argon2 from 'argon2';
 
 import Admin from './admin.model';

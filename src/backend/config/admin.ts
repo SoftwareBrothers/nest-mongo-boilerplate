@@ -1,6 +1,6 @@
 import Resources from '../admin/resources';
 
-export default (connection) => ({
+export default (connection): Object => ({
   version: {
     admin: true,
   },

@@ -25,6 +25,7 @@
     "plugin:jest/recommended"
   ],
   "rules": {
+    "jest/expect-expect": "off",
     "lines-between-class-members": "error",
     "strict": "error",
     "object-curly-spacing": "error",
