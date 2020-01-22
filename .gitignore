@@ -48,5 +48,5 @@ lerna-debug.log*
 # SonarQube
 .scannerwork
 
-# infrasructure
+# infrastructure
 infrastructure/k8s/environments/**/api-secrets.yml
